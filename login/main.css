@@ -1,14 +1,4 @@
-@font-face {
-  font-family: "IranSansX";
-  src: url("../assets/fonts/iransansX/IRANSansX-Light.ttf");
-}
 
-* {
-  font-family: "IranSansX" !important;
-  margin: 0px;
-  padding: 0px;
-  direction: rtl;
-}
 
 body {
   font-family: Arial, sans-serif;

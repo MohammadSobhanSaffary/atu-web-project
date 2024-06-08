@@ -7,7 +7,7 @@ const notify = document.querySelector(".notify");
 
 let userInfo =
   localStorage.getItem("userInfo") &&
-  JSON.stringify(localStorage.getItem("userInfo"));
+  JSON.parse(localStorage.getItem("userInfo"));
 let courses = [];
 let selectedCourses = [];
 
