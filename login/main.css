@@ -1,9 +1,8 @@
-
-
 body {
   font-family: Arial, sans-serif;
   background-color: #f1f1f1;
 }
+
 .login-container {
   background-color: white;
   padding: 20px;
@@ -13,10 +12,13 @@ body {
   margin: 0 auto;
   margin-top: 100px;
 }
+
 h2 {
   text-align: center;
 }
-input[type=text], input[type=password] {
+
+input[type="text"],
+input[type="password"] {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -25,8 +27,9 @@ input[type=text], input[type=password] {
   border-radius: 4px;
   box-sizing: border-box;
 }
+
 button {
-  background-color: #4CAF50;
+  background-color: #4caf50;
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
@@ -35,6 +38,19 @@ button {
   cursor: pointer;
   width: 100%;
 }
+
 button:hover {
   background-color: #45a049;
+}
+
+.signin,
+.signup {
+  color: slateblue;
+  font-size: 14px;
+  padding-right: 10px;
+  cursor: pointer;
+}
+
+.display-none {
+  display: none;
 }

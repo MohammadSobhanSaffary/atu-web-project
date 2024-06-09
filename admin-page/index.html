@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../main.css" />
+    <link rel="stylesheet" href="main.css" />
+    <title>تمرین دوم برنامه نویسی وب</title>
+  </head>
+  <body>
+    <header>
+      <div class="logo">سامانه آموزشی دانشگاه علامه طباطبایی</div>
+      <nav>
+        <ul>
+          <!-- <li class="add-course active">+ افزودن درس به لیست</li> -->
+          <!-- <li><a href="#">دروس انتخاب شده</a></li> -->
+        </ul>
+      </nav>
+      <div class="logout">
+        <div class="userInfo">
+          <span class="username"></span>
+          <span class="usertype"></span>
+        </div>
+        <img src="../assets/images/logout-svgrepo-com.svg" />
+      </div>
+    </header>
+    <main>
+      <div class="selected-courses-table-wrapper">
+        <span>جدول دروس ارائه شده</span>
+        <table class="course-table">
+          <thead>
+            <tr>
+              <th>نام درس</th>
+              <th>نام استاد</th>
+              <th>روزه های برگذاری</th>
+              <th>زمان شروع</th>
+              <th>زمان پایان</th>
+              <th>عملیات</th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+      <form>
+        <label for="course-name">نام درس:</label>
+        <input type="text" id="course-name" name="course-name" required />
+
+        <label for="instructor-name">نام استاد:</label>
+        <input
+          type="text"
+          id="instructor-name"
+          name="instructor-name"
+          required
+        />
+
+        <label for="class-day-1">روز برگذاری ۱:</label>
+        <input type="text" id="class-day-1" name="class-day-1" required />
+
+        <label for="class-day-2">روز برگذاری ۲:</label>
+        <input type="text" id="class-day-2" name="class-day-2" required />
+
+        <label for="start-time">ساعت شروع کلاس:</label>
+        <input type="time" id="start-time" name="start-time" required />
+
+        <label for="end-time">ساعت پایان کلاس:</label>
+        <input type="time" id="end-time" name="end-time" required />
+
+        <button type="submit">ثبت اطلاعات</button>
+      </form>
+    </main>
+    <div class="notify notification"></div>
+    <script type="text/javascript" src="main.js"></script>
+  </body>
+</html>

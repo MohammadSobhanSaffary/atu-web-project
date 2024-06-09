@@ -1,4 +1,4 @@
-type day="شنبه"|"یکشنبه"|"دوشنبه"|"سه شنبه"|"چهار شنبه"|"پنجشنبه"|"جمعه";
+type day="شنبه"|"یکشنبه"|"دوشنبه"|"سه شنبه"|"چهار شنبه"|"پنج شنبه"|"جمعه";
 export interface Lesson{
    lessonId:string;
    lessonName:string;
