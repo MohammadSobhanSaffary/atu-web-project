@@ -29,14 +29,28 @@ let userInfo =
   JSON.parse(localStorage.getItem("userInfo"));
 let courses = [];
 
+
+
+
+
+
+
+
+
 if ([null, undefined, ""].includes(userInfo)) {
   window.location.href = "login/index.html";
 }
 
+
+
+
+
 userType.textContent = userInfo.isAdmin ? "مدیر سامانه" : "دانشجو";
 usernameSpan.textContent = userInfo.username ? userInfo.username : "";
 
-const createTable = () => {
+
+
+function createTable() {
   courses.forEach((course) => {
     const tr = document.createElement("tr");
     tr.classList.add("table-row");
@@ -67,7 +81,7 @@ const createTable = () => {
     tr.appendChild(addBtn);
     courseTable.appendChild(tr);
   });
-};
+}
 
 (() => {
   fetch(`${BASE_URL}lessons`, {})
@@ -167,7 +181,7 @@ function removeRow(selectedCourse) {
 
 logout.addEventListener("click", () => {
   localStorage.clear();
-  window.location.href = "login/index.html";
+  window.location.href = "../login/index.html";
 });
 
 addNewLessonBtn.addEventListener("click", (e) => {

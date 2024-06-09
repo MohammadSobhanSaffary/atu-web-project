@@ -43,25 +43,33 @@ function removeRow(course) {
   selectedCourses = selectedCourses.filter(
     (el) => el.lessonId !== course.lessonId
   );
-  userInfo={ ...userInfo, pickedLessons: selectedCourses };
+  userInfo = { ...userInfo, pickedLessons: selectedCourses };
   fetch(BASE_URL + "users/" + userInfo.userId, {
     method: "PUT",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(userInfo),
   })
     .then((res) => res.json())
-    .then((res) => console.log(res))
+    .then((res) => {
+      notify.textContent = "درس انتخاب شده با موفقیت حذف شد.";
+      notify.classList.add("show-notification");
+      notify.classList.add("success");
+
+      setTimeout(() => {
+        notify.innerHTML = "";
+        notify.classList.remove("show-notification");
+        notify.classList.remove("success");
+      }, 3000);
+    })
     .catch((err) => console.error(err));
 
-  localStorage.setItem(
-    "userInfo",
-    JSON.stringify(userInfo)
-  );
-  addToSelectedCourse();
+  localStorage.setItem("userInfo", JSON.stringify(userInfo));
+  addToSelectedCourseTable();
 }
 
 
-const addToSelectedCourse = () => {
+
+const addToSelectedCourseTable = () => {
   selectedCourseTable.innerHTML = "";
   selectedCourses.forEach((course) => {
     const tr = document.createElement("tr");
@@ -95,9 +103,9 @@ const addToSelectedCourse = () => {
   });
 };
 
-addToSelectedCourse();
+addToSelectedCourseTable();
 
 logout.addEventListener("click", () => {
   localStorage.clear();
-  window.location.href = "login/index.html";
+  window.location.href = "../login/index.html";
 });
