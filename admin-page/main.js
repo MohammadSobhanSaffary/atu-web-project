@@ -7,7 +7,15 @@ const notify = document.querySelector(".notify");
 const logout = document.querySelector(".logout");
 const userType = document.querySelector(".usertype");
 const usernameSpan = document.querySelector(".username");
-
+const IranWeekDays = [
+  "شنبه",
+  "یکشنبه",
+  "دوشنبه",
+  "سه شنبه",
+  "چهار شنبه",
+  "پنج شنبه",
+  "جمعه",
+];
 const newLessonName = document.querySelector("#course-name");
 const newLessonTeacher = document.querySelector("#instructor-name");
 const newLessonDay1 = document.querySelector("#class-day-1");
@@ -90,6 +98,19 @@ function addCourse() {
       notify.classList.remove("error");
     }, 3000);
     return;
+  } else if (
+    !IranWeekDays.includes(newLessonDay1.value.trim()) ||
+    !IranWeekDays.includes(newLessonDay2.value.trim())
+  ) {
+    notify.textContent = "لطفا روزهای برگذاری را درست وارد فرمایید.";
+    notify.classList.add("show-notification");
+    notify.classList.add("error");
+    setTimeout(() => {
+      notify.innerHTML = "";
+      notify.classList.remove("show-notification");
+      notify.classList.remove("error");
+    }, 3000);
+    return;
   } else {
     fetch(BASE_URL + "lessons", {
       method: "POST",
@@ -148,7 +169,6 @@ logout.addEventListener("click", () => {
   localStorage.clear();
   window.location.href = "login/index.html";
 });
-
 
 addNewLessonBtn.addEventListener("click", (e) => {
   e.preventDefault();
