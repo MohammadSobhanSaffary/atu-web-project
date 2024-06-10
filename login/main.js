@@ -69,7 +69,7 @@ const notifySuccessLogin = (inputUser) => {
   setTimeout(() => {
     notify.innerHTML = "";
     notify.classList.remove("show-notification");
-    window.location.href = inputUser.isAdmin
+    window.location.href = inputUser?.isAdmin
       ? "../admin-page/index.html"
       : "../index.html";
     notify.classList.remove("success");
