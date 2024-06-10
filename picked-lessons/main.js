@@ -5,8 +5,8 @@ const courseTable = document.querySelector(".course-table");
 const selectedCourseTable = document.querySelector(".selected-courses-table");
 const notify = document.querySelector(".notify");
 const logout = document.querySelector(".logout");
-const userType=document.querySelector(".usertype");
-const usernameSpan=document.querySelector(".username");
+const userType = document.querySelector(".usertype");
+const usernameSpan = document.querySelector(".username");
 
 let userInfo =
   localStorage.getItem("userInfo") &&
@@ -18,9 +18,8 @@ if ([null, undefined, ""].includes(userInfo)) {
   window.location.href = "login/index.html";
 }
 
-userType.textContent=userInfo.isAdmin?"مدیر سامانه":"دانشجو";
-usernameSpan.textContent=userInfo.username?userInfo.username:"";
-
+userType.textContent = userInfo.isAdmin ? "مدیر سامانه" : "دانشجو";
+usernameSpan.textContent = userInfo.username ? userInfo.username : "";
 
 (() => {
   fetch(`${BASE_URL}users`, {})
@@ -30,6 +29,7 @@ usernameSpan.textContent=userInfo.username?userInfo.username:"";
         (el) => el.username === userInfo?.username
       )?.pickedLessons;
       selectedCourses = userPickedLessons;
+      addToSelectedCourseTable();
     })
     .catch((err) => console.error(err));
 })();
@@ -66,8 +66,6 @@ function removeRow(course) {
   localStorage.setItem("userInfo", JSON.stringify(userInfo));
   addToSelectedCourseTable();
 }
-
-
 
 const addToSelectedCourseTable = () => {
   selectedCourseTable.innerHTML = "";
